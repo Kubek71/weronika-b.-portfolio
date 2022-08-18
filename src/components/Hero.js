@@ -1,22 +1,30 @@
 import React from "react";
 import profile from "../images/profile.jpg";
 import { animate, motion } from "framer-motion";
+import { useTransform, useMotionValue } from "framer-motion";
 import {
   HeroStyled,
   AboutContainer,
   Picture,
   Card,
   Text,
+  Button,
 } from "./styled-components/HeroStyled";
 import { useEffect, useState } from "react";
 
-const Hero = ({ forwardedRef }) => {
+const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
   useEffect(() => {
     if (forwardedRef.current !== null) {
-      forwardedRef.current.scrollIntoView({ behavior: "smooth" });
+      forwardedRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
       console.log(forwardedRef.current);
     }
   }, []);
+  const x = useMotionValue(0);
+  const fade = useTransform(x, [0, 100], ["#f00", "#00f"]);
   return (
     <HeroStyled ref={forwardedRef}>
       <AboutContainer
@@ -32,6 +40,14 @@ const Hero = ({ forwardedRef }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
           </Text>
         </Card>
+        <Button
+          as={motion.button}
+          style={{ fade }}
+          whileHover={{ scale: 1.1 }}
+          onClick={() => setShowPictures(!showPictures)}
+        >
+          Moje Prace
+        </Button>
       </AboutContainer>
     </HeroStyled>
   );

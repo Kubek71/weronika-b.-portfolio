@@ -1,8 +1,14 @@
 import React from "react";
 import { HeaderStyled, Heading } from "./styled-components/HeaderStyled";
 import Typewriter from "typewriter-effect";
+import { useEffect } from "react";
 
-const Header = () => {
+const Header = ({ setRenderHeroPage }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderHeroPage(true);
+    }, 4000);
+  }, []);
   return (
     <HeaderStyled>
       <Heading>

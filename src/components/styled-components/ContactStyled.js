@@ -1,64 +1,34 @@
 import styled from "styled-components";
-export const SidebarStyled = styled.div`
-  width: 15vw;
-  min-width: 150px;
-  min-height: 100%;
+export const ContactStyled = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
   background: linear-gradient(
     0deg,
     rgba(134, 16, 51, 0) 0%,
     rgba(66, 15, 37, 1) 85%
   );
-  position: relative;
 
-  svg,
   button {
     cursor: pointer;
   }
-
-  .svg-mobile {
-    display: none;
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    z-index: 1;
-  }
-
-  @media (max-width: 991.98px) {
-    width: 0;
-    min-width: 0;
-    max-width: 0;
-
-    svg {
-      display: none;
-    }
-
-    .svg-mobile {
-      display: unset;
-    }
-  }
-`;
-export const StickyContainer = styled.div`
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-  align-items: center;
-  justify-items: center;
 `;
 
 export const ContactForm = styled.form`
   text-align: left;
   border: 1px solid #fff;
   width: 80%;
+  max-width: 800px;
   min-height: 100%;
   padding: 1rem;
   display: grid;
   grid-template-rows: 1fr 1fr 2fr 0.5fr;
   align-items: center;
   justify-items: center;
+  grid-gap: 1rem;
 `;
 
 export const FormHeading = styled.h2`

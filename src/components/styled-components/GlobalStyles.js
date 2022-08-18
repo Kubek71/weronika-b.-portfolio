@@ -17,39 +17,18 @@ body, html {
 body {
     background: linear-gradient(to bottom, #c31432, #240b36);
     font-family: 'Saira Condensed', sans-serif; 
+    position: relative;
 }
 .App {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     display: flex;
-
-
-    .page-content {
+}
+.page-content {
         width: 100%;
         height: 100%;
+        padding: 1.5rem;
+        
     }
-
-    .absolute {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #240b36;
-        z-index: 1;
-        min-height: 100%;
-        min-width: 100%;
-
-        .container{
-            position: unset;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 128px;
-            padding-bottom: 64px;
-        }
-
-
-    }
-    
-}
 
 `;

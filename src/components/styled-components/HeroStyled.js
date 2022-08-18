@@ -7,7 +7,6 @@ export const HeroStyled = styled.main`
   width: 100%;
   justify-content: center;
   /* display: none; */
-  padding: 5vw;
   z-index: 2;
   .isActive {
     justify-content: space-evenly;

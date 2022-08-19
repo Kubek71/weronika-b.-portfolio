@@ -20,7 +20,7 @@ const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
         block: "nearest",
         inline: "start",
       });
-      console.log(forwardedRef.current);
+      forwardedRef.current = null;
     }
   }, []);
   const x = useMotionValue(0);

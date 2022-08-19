@@ -43,10 +43,15 @@ export const ImageCard = styled.div`
 
   max-height: calc(50vh - 3rem);
 
+  &:hover {
+    transform: scale(0.95);
+  }
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
   }
 `;
 

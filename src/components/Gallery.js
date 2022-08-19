@@ -38,66 +38,65 @@ const Gallery = () => {
     scrollIntoGallery();
   }, []);
 
+  useEffect(() => {
+    popupImgSrc !== null
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [popupImgSrc]);
+
   return (
     <>
       <GalleryContainer ref={GalleryContainerRef}>
         <ButtonsBox>
-          <AnimatePresence>
-            <SwitchButton
-              as={motion.button}
-              animate={
-                chooseAlbumOnClick === digitalArray
-                  ? switchButtonsBoxShadow
-                  : {}
-              }
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => setChooseAlbumOnClick(digitalArray)}
-            >
-              Digital
-            </SwitchButton>
-            <SwitchButton
-              as={motion.button}
-              animate={
-                chooseAlbumOnClick === postersArray
-                  ? switchButtonsBoxShadow
-                  : {}
-              }
-              whileHover={{ scale: 1.1 }}
-              onClick={() => setChooseAlbumOnClick(postersArray)}
-            >
-              Plakaty
-            </SwitchButton>
-            <SwitchButton>Digital</SwitchButton>
-          </AnimatePresence>
-        </ButtonsBox>
-        <AnimatePresence initial={false}>
-          <GallerySection
-            as={motion.section}
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{
-              default: {
-                ease: "linear",
-              },
-            }}
-            exit={{}}
-            key={Math.random() * 1000}
+          <SwitchButton
+            as={motion.button}
+            animate={
+              chooseAlbumOnClick === digitalArray ? switchButtonsBoxShadow : {}
+            }
+            transition={{ delay: 0 }}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setChooseAlbumOnClick(digitalArray)}
           >
-            {chooseAlbumOnClick.map((imgSrc, i) => {
-              return (
-                <ImageCard>
-                  <img
-                    src={`./assets/digital/${imgSrc}`}
-                    alt="#"
-                    onClick={(e) => setPopupImgSrc(e.target.src)}
-                  ></img>
-                </ImageCard>
-              );
-            })}
-          </GallerySection>
-        </AnimatePresence>
+            Digital
+          </SwitchButton>
+          <SwitchButton
+            as={motion.button}
+            animate={
+              chooseAlbumOnClick === postersArray ? switchButtonsBoxShadow : {}
+            }
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setChooseAlbumOnClick(postersArray)}
+          >
+            Plakaty
+          </SwitchButton>
+          <SwitchButton>Digital</SwitchButton>
+        </ButtonsBox>
+
+        <GallerySection
+          as={motion.section}
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{
+            default: {
+              ease: "linear",
+            },
+          }}
+          key={Math.random() * 10000}
+        >
+          {chooseAlbumOnClick.map((imgSrc, i) => {
+            return (
+              <ImageCard key={i}>
+                <img
+                  src={`./assets/digital/${imgSrc}`}
+                  alt="#"
+                  onClick={(e) => {
+                    setPopupImgSrc(e.target.src);
+                  }}
+                ></img>
+              </ImageCard>
+            );
+          })}
+        </GallerySection>
       </GalleryContainer>
 
       {popupImgSrc !== null && (
@@ -108,11 +107,7 @@ const Gallery = () => {
             animate={{ opacity: 1 }}
           >
             <img src={popupImgSrc} alt="#" onClick={(e) => console.log(e)} />
-            <SvgButton
-              onClick={() => {
-                setPopupImgSrc(null);
-              }}
-            />
+            <SvgButton onClick={(e) => setPopupImgSrc(null)} />
           </PopupBox>
         </ImgPopup>
       )}

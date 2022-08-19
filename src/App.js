@@ -21,7 +21,10 @@ const App = () => {
         <Contact />
       ) : (
         <div className="page-content">
-          <Header setRenderHeroPage={setRenderHeroPage} />
+          <Header
+            renderHeroPage={renderHeroPage}
+            setRenderHeroPage={setRenderHeroPage}
+          />
           {renderHeroPage === true && (
             <Hero
               forwardedRef={heroRef}

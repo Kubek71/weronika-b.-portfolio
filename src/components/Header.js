@@ -3,14 +3,14 @@ import { HeaderStyled, Heading } from "./styled-components/HeaderStyled";
 import Typewriter from "typewriter-effect";
 import { useEffect } from "react";
 
-const Header = ({ setRenderHeroPage }) => {
+const Header = ({ renderHeroPage, setRenderHeroPage }) => {
   useEffect(() => {
     setTimeout(() => {
       setRenderHeroPage(true);
     }, 4000);
   }, []);
   return (
-    <HeaderStyled>
+    <HeaderStyled id="15">
       <Heading>
         <Typewriter
           options={{

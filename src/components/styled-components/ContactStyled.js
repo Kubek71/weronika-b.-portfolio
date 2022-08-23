@@ -6,6 +6,7 @@ export const ContactStyled = styled.div`
   align-items: center;
   min-width: 100vw;
   min-height: 100vh;
+  padding: 5vw;
   background: linear-gradient(
     0deg,
     rgba(134, 16, 51, 0) 0%,
@@ -20,12 +21,12 @@ export const ContactStyled = styled.div`
 export const ContactForm = styled.form`
   text-align: left;
   border: 1px solid #fff;
-  width: 80%;
-  max-width: 800px;
-  min-height: 100%;
+  width: 100%;
   padding: 1rem;
+  max-height: calc(100vh - 10vw);
+  max-width: 800px;
   display: grid;
-  grid-template-rows: 1fr 1fr 2fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 3fr 1fr;
   align-items: center;
   justify-items: center;
   grid-gap: 1rem;
@@ -68,11 +69,12 @@ export const Textarea = styled.textarea`
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1rem;
-  background: rgb(235, 183, 198);
+  background: rgb(167, 40, 95);
   background: linear-gradient(
-    326deg,
-    rgba(235, 183, 198, 0.025) 0%,
-    rgba(167, 40, 95, 0.6) 84%
+    126deg,
+    rgba(167, 40, 95, 1) 22%,
+    rgba(84, 59, 167, 1) 55%,
+    rgba(40, 136, 167, 1) 79%
   );
   &::placeholder {
     color: #fff;
@@ -89,6 +91,8 @@ export const SubmitButton = styled.button`
     rgba(235, 183, 198, 0.025) 0%,
     rgba(167, 40, 95, 0.6) 84%
   );
+
+  /* background-size: 300%; */
 
   color: #fff;
   border: 1px solid #fff;

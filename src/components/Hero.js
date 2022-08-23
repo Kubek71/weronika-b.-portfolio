@@ -23,8 +23,6 @@ const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
       forwardedRef.current = null;
     }
   }, []);
-  const x = useMotionValue(0);
-  const fade = useTransform(x, [0, 100], ["#f00", "#00f"]);
   return (
     <HeroStyled ref={forwardedRef}>
       <AboutContainer
@@ -36,14 +34,27 @@ const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
         <Picture src={profile} />
         <Card>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            Jestem studentką Sztuki Nowych Mediów w polsko-japońskiej Akademii
+            Technik Komputerowych w Gdańsku. Uwielbiam tworzyć ilustracje
+            tradycyjnymi metodami, ale także grafiką cyfrową. Zajmuje się
+            również obróbką zdjęć. Interesuje się fotografią, animacją,
+            kaligrafią oraz projektowaniem designów na produkty.{" "}
           </Text>
         </Card>
         <Button
           as={motion.button}
-          style={{ fade }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{
+            background: `linear-gradient(
+            289deg,
+            rgba(134, 16, 51, 1) 0%,
+            rgba(199, 98, 141, 0) 85%
+          )`,
+            backgroundSize: "150%",
+            backgroundPosition: ["0%", "25%", "50%", "75% ", "100%"],
+          }}
+          transition={{
+            backgroundPosition: { duration: 0.25 },
+          }}
           onClick={() => setShowPictures(!showPictures)}
         >
           Moje Prace

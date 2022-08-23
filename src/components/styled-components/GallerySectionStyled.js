@@ -45,6 +45,7 @@ export const ImageCard = styled.div`
 
   &:hover {
     transform: scale(0.95);
+    background: red;
   }
 
   img {

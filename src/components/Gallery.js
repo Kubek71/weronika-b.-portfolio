@@ -69,7 +69,7 @@ const Gallery = () => {
           >
             Plakaty
           </SwitchButton>
-          <SwitchButton>Digital</SwitchButton>
+          <SwitchButton>Mixed Art</SwitchButton>
         </ButtonsBox>
 
         <GallerySection

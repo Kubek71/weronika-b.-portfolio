@@ -16,7 +16,7 @@ export const HeroStyled = styled.main`
   padding-bottom: 10vh;
   @media (min-width: 768px) {
     padding-bottom: 0;
-    font-size: 16px;
+    font-size: 24px;
   }
   .isActive {
     justify-content: flex-start;
@@ -25,15 +25,14 @@ export const HeroStyled = styled.main`
 export const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
   max-width: 100%;
   max-width: 1800px;
   border: 1px solid #fff;
 
-  overflow: hidden;
-
   @media (min-width: 768px) {
     display: grid;
+    gap: 2em;
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
@@ -68,13 +67,17 @@ export const Card = styled.div`
 export const Text = styled.span`
   color: #fff;
   line-height: 1.2em;
-  font-size: 1.6em;
+  font-size: 2.2vh;
   font-weight: 300;
   max-height: 100%;
-  padding: 0 1.5rem;
+  padding: 0.5rem 1.5rem;
 
   strong {
     transform: scale(1.1);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.6em;
   }
 `;
 
@@ -84,7 +87,7 @@ export const Button = styled.button`
   padding: 1.5rem 2.5rem;
 
   border: 1px solid #fff;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: 600;
   letter-spacing: 0.25rem;
   background: none;

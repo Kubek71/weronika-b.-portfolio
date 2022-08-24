@@ -1,6 +1,6 @@
 import React from "react";
 import profile from "../images/profile.jpg";
-import { animate, motion } from "framer-motion";
+import { addScaleCorrector, animate, motion } from "framer-motion";
 import { useTransform, useMotionValue } from "framer-motion";
 import {
   HeroStyled,
@@ -9,6 +9,7 @@ import {
   Card,
   Text,
   Button,
+  MediaBox,
 } from "./styled-components/HeroStyled";
 import { useEffect, useState } from "react";
 
@@ -39,6 +40,23 @@ const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
             tradycyjnymi metodami, ale także grafiką cyfrową. Zajmuje się
             również obróbką zdjęć. Interesuje się fotografią, animacją,
             kaligrafią oraz projektowaniem designów na produkty.{" "}
+            <MediaBox>
+              <a
+                href="https://www.instagram.com/weronika_bruzdzinska/"
+                target="_blank"
+              >
+                <motion.button
+                  className="instagram-button"
+                  whileHover={{ scale: 1.1 }}
+                ></motion.button>
+              </a>
+              <a href="https://society6.com/verqqa" target="_blank">
+                <motion.button
+                  className="shop-button"
+                  whileHover={{ scale: 1.1 }}
+                ></motion.button>
+              </a>
+            </MediaBox>
           </Text>
         </Card>
         <Button

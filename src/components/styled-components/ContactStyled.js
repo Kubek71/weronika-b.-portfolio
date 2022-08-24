@@ -23,7 +23,8 @@ export const ContactForm = styled.form`
   border: 1px solid #fff;
   width: 100%;
   padding: 1rem;
-  max-height: calc(100vh - 10vw);
+  max-height: calc(90vh - 10vw);
+  min-height: 70vh;
   max-width: 800px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 3fr 1fr;
@@ -60,7 +61,6 @@ export const Textfield = styled.input`
   border: none;
   border-bottom: 1px solid #fff;
   padding: 0.5rem 1rem;
-  margin: 2rem auto;
   color: #fff;
 
   &::placeholder {

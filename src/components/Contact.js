@@ -6,6 +6,7 @@ import {
   SubmitButton,
   FormHeading,
   Textarea,
+  SuccesfullPopup,
 } from "./styled-components/ContactStyled";
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -14,6 +15,13 @@ import contactIcon from "../images/contactsvg.svg";
 
 const Contact = () => {
   const contactForm = useRef();
+  const [succesfullPopup, setSuccesfullPopup] = useState(false);
+
+  useEffect(() => {
+    if (succesfullPopup === true) {
+      setTimeout(() => setSuccesfullPopup((current) => !current), 3000);
+    }
+  }, [succesfullPopup]);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -27,13 +35,14 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          e.target.reset();
+          setSuccesfullPopup(true);
           console.log(result);
         },
         (error) => {
           console.log(error.text);
         }
       );
+    e.target.reset();
   };
 
   return (
@@ -46,7 +55,20 @@ const Contact = () => {
         ref={contactForm}
         onSubmit={sendEmail}
       >
-        <FormHeading>Napisz do mnie!</FormHeading>
+        <FormHeading
+          as={motion.h2}
+          initial={{ backgroundSize: "300%" }}
+          animate={{
+            backgroundPosition: ["0%", "25%", "50%", "75% ", "100%"],
+          }}
+          transition={{
+            duration: 2,
+            repeat: 2,
+            default: { ease: "linear" },
+          }}
+        >
+          Napisz do mnie!
+        </FormHeading>
         <Textfield
           type="text"
           name="from_name"
@@ -83,12 +105,26 @@ const Contact = () => {
         ></Textarea>
         <SubmitButton
           as={motion.button}
-          initial={{ width: "45%" }}
-          animate={{ width: "50%" }}
-          transition={{ duration: 0.5 }}
+          initial={{ width: "25%" }}
+          animate={{ width: "35%" }}
+          transition={{ width: { duration: 0.5 } }}
+          whileHover={{
+            scale: 1.1,
+            transition: { scale: { duration: 0.125 } },
+          }}
         >
           Wyślij!
         </SubmitButton>
+        {succesfullPopup === true && (
+          <SuccesfullPopup
+            as={motion.div}
+            initial={{ y: "-1rem" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <strong>WIADOMOŚĆ WYSŁANA, DZIĘKUJĘ</strong>
+          </SuccesfullPopup>
+        )}
       </ContactForm>
     </ContactStyled>
   );

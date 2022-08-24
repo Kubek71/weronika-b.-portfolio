@@ -10,7 +10,11 @@ import {
   SvgButton,
 } from "./styled-components/GallerySectionStyled";
 import Svg from "../images/closePopupIcon.svg";
-import { digitalArray, postersArray } from "../helpers/ImgArrays";
+import {
+  digitalArray,
+  postersArray,
+  mixedArtArray,
+} from "../helpers/ImgArrays";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
@@ -69,7 +73,16 @@ const Gallery = () => {
           >
             Plakaty
           </SwitchButton>
-          <SwitchButton>Mixed Art</SwitchButton>
+          <SwitchButton
+            as={motion.button}
+            animate={
+              chooseAlbumOnClick === mixedArtArray ? switchButtonsBoxShadow : {}
+            }
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setChooseAlbumOnClick(mixedArtArray)}
+          >
+            Mixed Art
+          </SwitchButton>
         </ButtonsBox>
 
         <GallerySection
@@ -85,7 +98,7 @@ const Gallery = () => {
         >
           {chooseAlbumOnClick.map((imgSrc, i) => {
             return (
-              <ImageCard key={i}>
+              <ImageCard key={i} as={motion.div} whileHover={{ scale: 0.96 }}>
                 <img
                   src={`./assets/digital/${imgSrc}`}
                   alt="#"

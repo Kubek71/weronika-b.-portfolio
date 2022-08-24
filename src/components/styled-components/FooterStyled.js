@@ -11,4 +11,8 @@ export const FooterStyled = styled.footer`
   padding: 1.5rem;
   align-items: center;
   background: none;
+
+  svg {
+    cursor: pointer;
+  }
 `;

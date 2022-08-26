@@ -1,3 +1,10 @@
+Personal portfolio made for an illustrator.
+Created in React.js, styled with styled-components.
+Animated in framer-motion.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

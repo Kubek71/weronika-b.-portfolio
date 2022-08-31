@@ -1,11 +1,9 @@
 import styled from "styled-components";
 export const ContactStyled = styled.div`
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 5vw;
   background: linear-gradient(
     0deg,
@@ -20,18 +18,23 @@ export const ContactStyled = styled.div`
 
 export const ContactForm = styled.form`
   text-align: left;
+  margin: 0 auto;
   border: 1px solid #fff;
   width: 100%;
+  height: 80vh;
   padding: 1rem;
-  max-height: calc(90vh - 10vw);
-  min-height: 70vh;
+  max-height: calc(100vh - 10vw);
   max-width: 800px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 3fr 1fr;
   align-items: center;
   justify-items: center;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   position: relative;
+
+  @media (max-height: 500px) {
+    grid-gap: 0;
+  }
 `;
 
 export const FormHeading = styled.h2`
@@ -61,7 +64,12 @@ export const Textfield = styled.input`
   border: none;
   border-bottom: 1px solid #fff;
   padding: 0.5rem 1rem;
+  margin: 2rem auto;
   color: #fff;
+
+  @media (max-width: 768px) {
+    margin: 0.5rem auto;
+  }
 
   &::placeholder {
     color: #fff;

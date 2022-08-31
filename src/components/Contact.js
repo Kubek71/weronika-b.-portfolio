@@ -11,7 +11,6 @@ import {
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import contactIcon from "../images/contactsvg.svg";
 
 const Contact = () => {
   const contactForm = useRef();
@@ -36,10 +35,9 @@ const Contact = () => {
       .then(
         (result) => {
           setSuccesfullPopup(true);
-          console.log(result);
         },
         (error) => {
-          console.log(error.text);
+          //
         }
       );
     e.target.reset();
@@ -72,7 +70,7 @@ const Contact = () => {
         <Textfield
           type="text"
           name="from_name"
-          placeholder="Imie"
+          placeholder="Imię"
           required
         ></Textfield>
         <Textfield
@@ -122,7 +120,7 @@ const Contact = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <strong>WIADOMOŚĆ WYSŁANA, DZIĘKUJĘ</strong>
+            <strong>WIADOMOŚĆ WYSŁANA</strong>
           </SuccesfullPopup>
         )}
       </ContactForm>

@@ -1,7 +1,7 @@
 import React from "react";
 import profile from "../images/profile.jpg";
-import { addScaleCorrector, animate, motion } from "framer-motion";
-import { useTransform, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
+
 import {
   HeroStyled,
   AboutContainer,
@@ -11,7 +11,7 @@ import {
   Button,
   MediaBox,
 } from "./styled-components/HeroStyled";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
   useEffect(() => {
@@ -37,7 +37,7 @@ const Hero = ({ forwardedRef, showPictures, setShowPictures }) => {
           <Text>
             Jestem studentką Sztuki Nowych Mediów w polsko-japońskiej Akademii
             Technik Komputerowych w Gdańsku. Uwielbiam tworzyć ilustracje
-            tradycyjnymi metodami, ale także grafiką cyfrową. Zajmuje się
+            tradycyjnymi metodami, ale także grafiką cyfrową. Zajmuję się
             również obróbką zdjęć. Interesuje się fotografią, animacją,
             kaligrafią oraz projektowaniem designów na produkty.{" "}
             <MediaBox>

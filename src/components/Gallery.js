@@ -9,13 +9,12 @@ import {
   PopupBox,
   SvgButton,
 } from "./styled-components/GallerySectionStyled";
-import Svg from "../images/closePopupIcon.svg";
 import {
   digitalArray,
   postersArray,
   mixedArtArray,
 } from "../helpers/ImgArrays";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const Gallery = () => {
@@ -100,7 +99,7 @@ const Gallery = () => {
             return (
               <ImageCard key={i} as={motion.div} whileHover={{ scale: 0.96 }}>
                 <img
-                  src={`./assets/digital/${imgSrc}`}
+                  src={`./assets/pictures/${imgSrc}`}
                   alt="#"
                   onClick={(e) => {
                     setPopupImgSrc(e.target.src);

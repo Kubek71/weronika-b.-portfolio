@@ -2,6 +2,8 @@ Personal portfolio made for an illustrator.
 Created in React.js, styled with styled-components.
 Animated in framer-motion.
 
+[See the Website](https://weronikabruzdzinska.netlify.app/)
+
 
 
 

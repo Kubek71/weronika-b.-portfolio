@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
-const Contact = () => {
+const Contact = ({ setRenderContactPage }) => {
   const contactForm = useRef();
   const [succesfullPopup, setSuccesfullPopup] = useState(false);
 
@@ -21,6 +21,19 @@ const Contact = () => {
       setTimeout(() => setSuccesfullPopup((current) => !current), 3000);
     }
   }, [succesfullPopup]);
+
+  useEffect(() => {
+    function keydownEventHandler(e) {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        setRenderContactPage(false);
+      }
+    }
+    document.addEventListener("keydown", keydownEventHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keydownEventHandler);
+    };
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -44,7 +57,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactStyled>
+    <ContactStyled onClick={() => setRenderContactPage((current) => !current)}>
       <ContactForm
         as={motion.form}
         initial={{ y: "-5vw", scale: 0.5 }}
@@ -52,6 +65,7 @@ const Contact = () => {
         transition={{ duration: 0.5, y: { delay: 0.5 } }}
         ref={contactForm}
         onSubmit={sendEmail}
+        onClick={(e) => e.stopPropagation()}
       >
         <FormHeading
           as={motion.h2}

@@ -12,14 +12,15 @@ import {
 import {
   digitalArray,
   postersArray,
-  mixedArtArray,
+  drawingsArray,
+  graphicsArray,
 } from "../helpers/ImgArrays";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const Gallery = () => {
   const GalleryContainerRef = useRef(null);
-  const [chooseAlbumOnClick, setChooseAlbumOnClick] = useState(digitalArray);
+  const [chooseAlbumOnClick, setChooseAlbumOnClick] = useState(drawingsArray);
   const [popupImgSrc, setPopupImgSrc] = useState(null);
 
   const switchButtonsBoxShadow = {
@@ -54,13 +55,33 @@ const Gallery = () => {
           <SwitchButton
             as={motion.button}
             animate={
-              chooseAlbumOnClick === digitalArray ? switchButtonsBoxShadow : {}
+              chooseAlbumOnClick === drawingsArray ? switchButtonsBoxShadow : {}
             }
             transition={{ delay: 0 }}
             whileHover={{ scale: 1.1 }}
+            onClick={() => setChooseAlbumOnClick(drawingsArray)}
+          >
+            Rysunek
+          </SwitchButton>
+          <SwitchButton
+            as={motion.button}
+            animate={
+              chooseAlbumOnClick === digitalArray ? switchButtonsBoxShadow : {}
+            }
+            whileHover={{ scale: 1.1 }}
             onClick={() => setChooseAlbumOnClick(digitalArray)}
           >
-            Digital
+            Ilustracja
+          </SwitchButton>
+          <SwitchButton
+            as={motion.button}
+            animate={
+              chooseAlbumOnClick === graphicsArray ? switchButtonsBoxShadow : {}
+            }
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setChooseAlbumOnClick(graphicsArray)}
+          >
+            Projekty Graficzne
           </SwitchButton>
           <SwitchButton
             as={motion.button}
@@ -71,16 +92,6 @@ const Gallery = () => {
             onClick={() => setChooseAlbumOnClick(postersArray)}
           >
             Plakaty
-          </SwitchButton>
-          <SwitchButton
-            as={motion.button}
-            animate={
-              chooseAlbumOnClick === mixedArtArray ? switchButtonsBoxShadow : {}
-            }
-            whileHover={{ scale: 1.1 }}
-            onClick={() => setChooseAlbumOnClick(mixedArtArray)}
-          >
-            Mixed Art
           </SwitchButton>
         </ButtonsBox>
 
@@ -112,14 +123,15 @@ const Gallery = () => {
       </GalleryContainer>
 
       {popupImgSrc !== null && (
-        <ImgPopup>
+        <ImgPopup onClick={() => setPopupImgSrc(null)}>
           <PopupBox
             as={motion.div}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <img src={popupImgSrc} alt="#" onClick={(e) => console.log(e)} />
-            <SvgButton onClick={(e) => setPopupImgSrc(null)} />
+            <img src={popupImgSrc} alt="#" />
+            <SvgButton onClick={() => setPopupImgSrc(null)} />
           </PopupBox>
         </ImgPopup>
       )}

@@ -18,7 +18,7 @@ const App = () => {
     <>
       <GlobalStyles />
       {renderContactPage === true ? (
-        <Contact />
+        <Contact setRenderContactPage={setRenderContactPage} />
       ) : (
         <div className="page-content">
           <Header

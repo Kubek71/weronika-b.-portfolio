@@ -1,3 +1,10 @@
+Personal portfolio created for my illustrator friend, according to her guidelines made with react.js, styled components
+
+https://weronikabruzdzinska.netlify.app/
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
